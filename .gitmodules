@@ -1,0 +1,12 @@
+[submodule "13_make"]
+	path = 13_make
+	url = https://github.com/mks65/make-MattChann.git
+[submodule "09_arrays"]
+	path = 09_arrays
+	url = https://github.com/mks65/array-swap-MattChann.git
+[submodule "03_euler"]
+	path = 03_euler
+	url = https://github.com/mks65/euler-MattChann.git
+[submodule "14_string_funcs"]
+	path = 14_string_funcs
+	url = https://github.com/mks65/strings-solon.git
