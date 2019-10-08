@@ -3,17 +3,50 @@
 ------------------------------------------------------------
 ### DayOfWeek, Month Date, Year
 
-##### Topic
+#### Topic
+
+------------------------------------------------------------
+### DayOfWeek, Month Date, Year
+
+#### Topic
+
+#### makefiles
+- used to make executable
+- works for not only C
+- Java Compiler and JVM do stuff for you, so it doesn't give you executables (gives machine code instead)
+- good practices
+	- separate compilations steps for each \*.c file
+	- run
+	- clean
+- only recompiles modified files
+- dependencies should only be one \*.c file and other header \*.h files
+Example makefile:
+'''
+all: main.o definitions.o
+	gcc -o program main.o definitions.o
+
+main.o: main.c headers.h
+	gcc -c main.c
+
+definitions.o: definitions.c
+	gcc -c definitions.c
+
+run:
+	./program
+
+clean:
+	rm *.o
+'''
 
 ------------------------------------------------------------
 ### Friday, October 4, 2019
 
-##### Pointers
+#### Pointers
 - variable type for storing memory addresses
     - unsigned integer type
 - 8 bytes large
 
-##### Pointers in Functions
+#### Pointers in Functions
 - when used as parameter
     - pass by value
         - address copied into the parameter and points to the same thing
@@ -21,16 +54,18 @@
     - parameter's memory allocated in space allocated for the associated function
 
 
-##### Primitive Types
-- char  (1 byte)
-- short (2 bytes)
-- int   (4 bytes)
-- long  (8 bytes)
-- float
-- double
+#### Primitive Types
+|Types  |Size    |
+|-------|--------|
+|char   |1 byte  |
+|int    |4 bytes |
+|short  |2 bytes |
+|long   |8 bytes |
+|float	|4 bytes |
+|double |8 bytes |
 
 
-##### CPU
+#### CPU
 - Instructions go in (in bits)
 - Stuff happens in the middle
 - Out comes the result
@@ -43,15 +78,15 @@
 ------------------------------------------------------------
 ### Thursday, October 3, 2019
 
-##### Java
+#### Java
 .java --> .class --> JVM --> OS --> Hardware
 
 
-##### C
+#### C
 .c --> Executable --> OS --> Hardware
 
 
-##### Protected Memory
+#### Protected Memory
 - OS allocates memory for programs and keeps track
 - Programs cannot access memory outside of their allocation
     - If the program tries to --> Segmentation Fault
