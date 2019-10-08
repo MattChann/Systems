@@ -8,8 +8,6 @@
 ------------------------------------------------------------
 ### DayOfWeek, Month Date, Year
 
-#### Topic
-
 #### makefiles
 - used to make executable
 - works for not only C
@@ -20,23 +18,37 @@
 	- clean
 - only recompiles modified files
 - dependencies should only be one \*.c file and other header \*.h files
-Example makefile:
-'''
-all: main.o definitions.o
-	gcc -o program main.o definitions.o
+- example makefile:
 
-main.o: main.c headers.h
-	gcc -c main.c
+		all: main.o definitions.o
+			gcc -o program main.o definitions.o
+		
+		main.o: main.c headers.h
+			gcc -c main.c
+		
+		definitions.o: definitions.c
+			gcc -c definitions.c
+		
+		run:
+			./program
 
-definitions.o: definitions.c
-	gcc -c definitions.c
+		clean:
+			rm *.o
 
-run:
-	./program
+- make will stop at first error
 
-clean:
-	rm *.o
-'''
+`typedef` - provides a new name for an existing data type
+Usage:
+```c
+typedef real_type new_name;
+```
+Examples:
+```c
+typedef unsigned long size_t;
+size_t x = 139; //x is really an unsigned long
+```
+Why?
+- stuff
 
 ------------------------------------------------------------
 ### Friday, October 4, 2019
