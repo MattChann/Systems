@@ -1,12 +1,12 @@
 # Notes for Systems Level Programming Class
 
 ------------------------------------------------------------
-### DayOfWeek, Month Date, Year
+### Thursday, October 10, 2019
 
-#### Topic
+Google mentorship x FTC Collab
 
 ------------------------------------------------------------
-### DayOfWeek, Month Date, Year
+### Tuesday, October 8, 2019
 
 #### makefiles
 - used to make executable
@@ -37,6 +37,8 @@
 
 - make will stop at first error
 
+In `char *strncpy(char *dest, const char *src, size_t n);` what is the type `size_t`?
+
 `typedef` - provides a new name for an existing data type
 Usage:
 ```c
@@ -48,7 +50,9 @@ typedef unsigned long size_t;
 size_t x = 139; //x is really an unsigned long
 ```
 Why?
-- stuff
+- allows code to work on different machines (known as portability)
+- defines appropriately for every machine
+- technically: can `typedef` a `typedef`
 
 ------------------------------------------------------------
 ### Friday, October 4, 2019
