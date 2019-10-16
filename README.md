@@ -1,9 +1,56 @@
 # Notes for Systems Level Programming Class
 
 ------------------------------------------------------------
+### Tuesday, October 15, 2019
+
+#### `struct` - creates a new type that is a collection of values
+```c
+struct {int a; char x;} s;
+```
+- (kind of like objects, but not advised to think of it this way)
+- in this example, `s` is a variable of type `struct {int a; char x;}`
+- we use the `.` operator to access values inside a struct
+
+		s.a = 10;
+		s.x = '@';
+- size of `struct` may not necessarily equal the sum of sizes of the values, might be a little more
+- "anonymous" struct, no name
+```c
+struct foo {int a; char x;};
+```
+```c
+struct foo {
+	int a;
+	char x;
+};
+```
+- `foo` is a **prototype** for the `struct`
+
+		struct foo s;
+- gcc will appropriately copy values between same non-anonymous `struct`s
+- common practice (in standard C libraries) to not `typedef` a `struct` because it hides stuff
+- normally don't declare `struct`s in main, typically outside all functions
+- can also declare `struct`s in header files
+- `.` binds before `*`
+- to access data from a `struct` pointer you would do:
+```c
+struct foo *p;
+p = &s;
+		
+(*p).x;
+		
+p->x; //c shorthand for (*p).x
+```
+
+------------------------------------------------------------
 ### Thursday, October 10, 2019
 
-Google mentorship x FTC Collab
+[Mr.Zamansky and Hunter Daedalus Program Talk](https://zamansky.github.io/presentations/navigating-hs-to-college-in-tech/index.html)
+
+------------------------------------------------------------
+### Thursday, October 10, 2019
+
+Google Mentorship Talk
 
 ------------------------------------------------------------
 ### Tuesday, October 8, 2019
@@ -39,7 +86,7 @@ Google mentorship x FTC Collab
 
 In `char *strncpy(char *dest, const char *src, size_t n);` what is the type `size_t`?
 
-`typedef` - provides a new name for an existing data type
+#### `typedef` - provides a new name for an existing data type
 Usage:
 ```c
 typedef real_type new_name;
