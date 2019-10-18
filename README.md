@@ -1,6 +1,23 @@
 # Notes for Systems Level Programming Class
 
 ------------------------------------------------------------
+### Friday, October 18, 2019
+
+```c
+struct login u = new_account(4190);
+```
+Order of operations when run:
+1. allocates memory necessary for `u`
+2. runs `new_account(4190)`
+3. copies the values of the returned struct into space allocated for `u`
+4. returned struct goes away and `u` persists because it is in the `main()` function
+
+Using struct as a parameter vs. pointer:
+- copies argument into parameter variable
+- edits the copy
+- only in scope of the function
+
+------------------------------------------------------------
 ### Tuesday, October 15, 2019
 
 #### `struct` - creates a new type that is a collection of values
