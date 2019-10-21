@@ -1,6 +1,26 @@
 # Notes for Systems Level Programming Class
 
 ------------------------------------------------------------
+### Monday, October 21, 2019
+
+#### Stack Memory
+- as a data structure
+	- first in, last out
+	- terminology: push, pop
+- associated with function calls
+- stores all normally declared variables (including pointers and structs), arrays, and function calls
+- functions are pushed onto the stack in the order they are called, and popped off when completed
+- when a function is popped off the stack, the staclk memory associated with it is released
+- only **one** stack
+
+#### Heap Memory
+- stores dynamically allocated memory
+	- **allocated at runtime**
+- data will remain in the eap until it is manually released (or the program terminates)
+	- hence no garbage collector like in Java
+
+
+------------------------------------------------------------
 ### Friday, October 18, 2019
 
 ```c
