@@ -1,6 +1,34 @@
 # Notes for Systems Level Programming Class
 
 ------------------------------------------------------------
+### Tuesday, October 22, 2019
+
+#### Dynamic Memory Allocation
+```c
+malloc(size_t x)
+```
+- allocates `x` bytes of **heap** memory
+- returns the address at the beginning of the allocation
+- returns a `void *`
+- can be used like an array:
+		
+		int *p;
+		p = malloc(5 * sizeOf(int));
+
+```c
+free(void * p)
+```
+- releases dynamically allocated memory
+- has one parameter, a pointer to the beginning of a dynamically allocated block of memory
+	- cannot free a portion, only the entire thing
+- every call to `malloc`/`calloc` should have a corresponding call to `free`
+
+```c
+calloc(size_t n, size_t x)
+```
+- allocates `n * x` bytes of memory
+- ensures every bit is 0
+------------------------------------------------------------
 ### Monday, October 21, 2019
 
 #### Stack Memory
