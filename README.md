@@ -1,6 +1,27 @@
 # Notes for Systems Level Programming Class
 
 ------------------------------------------------------------
+### Wednesday, October 23, 2019
+
+#### Dynamic Memory Allocation _(cont.)_
+```c
+calloc(size_t n, size_t x)
+```
+- allocates `n * x` bytes of memory
+- **ensures every bit is 0**
+
+```c
+realloc(void *p, size_t x)
+```
+- changes the amount of memory allocated for a block to `x` bytes
+- `p` must point to the beginning of a block
+- returns a pointer to the beginning of the block (this is not always the same as `p`)
+- if `x` is smaller than the original size of the allocation, the extra bytes will be released
+- if `x` is larger than the original size then either:
+	1. if there is enough space at the end of the original allocation, the original allocation will be updated
+	2. if there is not enough space, a new allocation will be created, containing all the original values; the original allocation will be freed
+
+------------------------------------------------------------
 ### Tuesday, October 22, 2019
 
 #### Dynamic Memory Allocation
@@ -27,7 +48,7 @@ free(void * p)
 calloc(size_t n, size_t x)
 ```
 - allocates `n * x` bytes of memory
-- ensures every bit is 0
+- **ensures every bit is 0**
 ------------------------------------------------------------
 ### Monday, October 21, 2019
 
