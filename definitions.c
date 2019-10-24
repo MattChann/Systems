@@ -29,12 +29,12 @@ struct node * insert_front(struct node *node, int value) {
 struct node * free_list(struct node *node) {
     struct node *nextNode;
     struct node *currentNode = node;
-    while((currentNode -> next) != NULL) {
+    while(nextNode != NULL) {
         printf("Freeing Node: %d\n", currentNode->i);
-
         nextNode = currentNode->next;
-        free(currentNode);
 
+        free(currentNode);
+        currentNode = NULL;
         currentNode = nextNode;
     }
     return node;
