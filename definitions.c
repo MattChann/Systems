@@ -4,23 +4,12 @@
 
 // Takes a pointer to a node struct and prints out all of the data in the list
 void print_list(struct node *node) {
-    char *listString;
-    listString = malloc(sizeof(char));
-    listString[0] = '[';
-
-    int currentSize = 1;
+    printf("[");
     struct node *currentNode = node;
-    while((currentNode -> next) != NULL) {
-        listString = realloc(listString, currentSize+2);
-        currentSize += 2;
-
-        listString[currentSize] = currentNode->i;
-        listString[currentSize+1] = ',';
+    for(; currentNode != NULL; currentNode = currentNode->next) {
+        printf("%d,", currentNode->i);
     }
-
-    listString = realloc(listString, currentSize+1);
-    listString[currentSize] = ']';
-    printf("%s\n", listString);
+    printf("]\n");
 }
 
 // Takes a pointer to the existing list and the data to be added
