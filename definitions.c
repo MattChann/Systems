@@ -14,7 +14,7 @@ void print_list(struct node *node) {
         listString = realloc(listString, currentSize+2);
         currentSize += 2;
 
-        listString[currentSize] = (currentNode -> value);
+        listString[currentSize] = currentNode->i;
         listString[currentSize+1] = ',';
     }
 
