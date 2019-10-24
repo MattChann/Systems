@@ -27,11 +27,12 @@ struct node * insert_front(struct node *node, int value) {
 // Takes a pointer to a list and then goes through the entire list freeing each node
 // Returns a pointer to the beginning of the list (which should be NULL by then)
 struct node * free_list(struct node *node) {
+    struct node *nextNode;
     struct node *currentNode = node;
     while((currentNode -> next) != NULL) {
         printf("Freeing Node: %d\n", currentNode->i);
 
-        struct node *nextNode = currentNode->next;
+        nextNode = currentNode->next;
         free(currentNode);
 
         currentNode = nextNode;
