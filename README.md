@@ -1,6 +1,34 @@
 # Notes for Systems Level Programming Class
 
 ------------------------------------------------------------
+### Thursday, October 24, 2019
+
+#### GDB - GNU DeBugger
+- to use `gdb`, you must compile using the `-g` flag with gcc
+- basic usage:
+
+		$ gdb program
+	- starts a `gdb` shell from which you can run your program
+- **Commands from in the `gdb` shell**
+	- `run`: runs the program until it ends/crashes/gets a signal
+	- `list`: shows the lines of code run around a crash
+	- `print var`: prints the value of of `var` at the time
+	- `backtrace`: shows the current stack
+	- `break lineNum`: creates breakpoint at a line
+- **Running a program in pieces**
+	- `run`: restarts the program
+	- `continue`: run the program until the next breakpoint/crash/end
+	- `next`: run the next line of the program only
+	- `step`: run the next line of the program, if that is a function call, run only the next line of that function
+
+#### Valgrind
+- tool for debugging memory issues in C programs
+- you must compile with `-g` in order to use valgring (and similar tools)
+- basic usage:
+
+		$ valgrind --leak-check=yes ./program
+
+------------------------------------------------------------
 ### Wednesday, October 23, 2019
 
 #### Dynamic Memory Allocation _(cont.)_
