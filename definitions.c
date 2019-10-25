@@ -38,3 +38,27 @@ struct node * free_list(struct node *node) {
     }
     return node;
 }
+
+// Removes the node containing data from the list pointed to by front
+// If data is not in the list, nothing is changed
+// Returns a pointer to the beginning of the list
+struct node * remove_node(struct node *front, int data) {
+    printf("Removing Node: %d\n", data);
+    struct node *currentNode, sentinelNode;
+    sentinelNode.next = front;
+    for(currentNode=&sentinelNode; currentNode!=NULL; currentNode=currentNode->next) {
+        if(currentNode->next == NULL) {
+            currentNode->next = NULL;
+        }
+        else {
+            if(currentNode->next->i == data) {
+                struct node *nullifyNode = currentNode->next;
+                free(nullifyNode);
+                nullifyNode = NULL;
+                currentNode->next = currentNode->next->next;
+                return sentinelNode.next;
+            }
+        }
+    }
+    return front;
+}

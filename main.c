@@ -17,6 +17,26 @@ int main() {
     printf("Printing List:\n");
     print_list(testNode);
 
+    printf("\n");
+    testNode = remove_node(testNode, 9);
+    printf("Printing List:\n");
+    print_list(testNode);
+
+    printf("\n");
+    testNode = remove_node(testNode, 5);
+    printf("Printing List:\n");
+    print_list(testNode);
+
+    printf("\n");
+    testNode = remove_node(testNode, 0);
+    printf("Printing List:\n");
+    print_list(testNode);
+
+    printf("\n");
+    testNode = remove_node(testNode, -1);
+    printf("Printing List:\n");
+    print_list(testNode);
+
     printf("\nFreeing List:\n");
     testNode = free_list(testNode);
 
