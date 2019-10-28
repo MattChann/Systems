@@ -1,6 +1,46 @@
 # Notes for Systems Level Programming Class
 
 ------------------------------------------------------------
+### Monday, October 28, 2019
+
+#### Makefile:
+```make
+ifeq ($(DEBUG), true)
+	CC = gcc -g
+else
+	CC = gcc
+endif
+
+
+all: main.o definitions.o
+	$(CC) -o program main.o definitions.o
+
+main.o: main.c headers.h
+	$(CC) -c main.c
+
+definitions.o: definitions.c headers.h
+	$(CC) -c definitions.c
+
+run:
+	./program
+
+memcheck:
+	valgrind --leak-check=yes ./program
+
+clean:
+	rm *.o
+	rm program
+```
+- can now run this command to make with `-g` flags in order to debug:
+		
+		$ make DEBUG=true
+- convention to use all caps variables in makefile
+- `$(<variable>)` is how you use variables in make
+- can now easily run valgrind using:
+
+		$ make memcheck
+
+------------------------------------------------------------
 ### Thursday, October 24, 2019
 
 #### GDB - GNU DeBugger
