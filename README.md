@@ -1,6 +1,43 @@
 # Notes for Systems Level Programming Class
 
 ------------------------------------------------------------
+### Monday, November 4, 2019
+
+#### Binary, Octal, and Hexadecimal Integers
+- Other base formatting characters for `printf`:
+	- `%o`: octal integer
+	- `%x`: hexadecimal integer
+- You can define native integers in bases 2, 8, and 16 by using the following prefixes
+	- `0b`: binary
+	- `0`: octal
+	- `0x`: hexadecimal
+
+_Note: Why do programmers always mix up Holloweeen and Christmas? ... Because 31 Oct is the same as 25 Dec :P_
+
+#### Bitwise Operators
+- Evaluated on every bit of a value
+- `~x`
+	- Negation
+	- Flip every bit of `x`
+- `a | b`
+	- Bitwise or
+	- Perform logical or for each pair of bits in (a, b)
+- `a & b`
+	- Bitwise and
+	- Perform logical and for each pair of bits in (a, b)
+- `a ^ b`
+	- Bitwise xor
+	- Perform logical xor for each pair of bits in (a, b)
+
+#### Swapping Bits Using Only Bitwise Operators
+| a | b | a = a ^ b | b 
+|---|---|
+| T | T |
+| T | F |
+| F | T |
+| F | F |
+
+------------------------------------------------------------
 ### Monday, October 28, 2019
 
 #### Makefile:
