@@ -28,14 +28,36 @@ _Note: Why do programmers always mix up Holloweeen and Christmas? ... Because 31
 - `a ^ b`
 	- Bitwise xor
 	- Perform logical xor for each pair of bits in (a, b)
+```c
+char i = 13
+i: 00001101
 
-#### Swapping Bits Using Only Bitwise Operators
-| a | b | a = a ^ b | b 
-|---|---|
-| T | T |
-| T | F |
-| F | T |
-| F | F |
+!i: 0 
+~i: 11110010
+
+char x = 8;
+x: 00001000
+~i | x : 11111010
+~i & x : 00000000
+
+// swapping a and b
+a = a ^ b // a contains bits not in common
+b = a ^ b // b now contains a 
+a = b ^ a // a now contains b 
+
+// swapping cont.
+r = a ^ b 
+b = r ^ b => a ^ b ^ b = 0 ^ a 
+a = r ^ b => a ^ b ^ a = 0 ^ b
+```
+- **Swapping Bits Using Only Bitwise Operators**
+
+| a | b | a = a ^ b | b = a ^ b | a = b ^ a | 
+|---|---|-----------|-----------|-----------|
+| T | T | F         | T         | T         |
+| T | F | T         | T         | F         |
+| F | T | T         | F         | T         |
+| F | F | F         | F         | F         |
 
 ------------------------------------------------------------
 ### Monday, October 28, 2019
