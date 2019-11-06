@@ -1,6 +1,35 @@
 # Notes for Systems Level Programming Class
 
 ------------------------------------------------------------
+### Wednesday, November 6, 2019
+
+#### File Permissions
+- **File Permissions**
+	- 3 types of permissions
+		- read, write, execute
+	- Permissions can be represented as 3-digit binary numbers, or 1-digit octal numbers
+		- `100` <==> `4` => read only
+		- `111` <==> `7` => read, write, execute
+	- There are 3 permission "areas"
+		- user, group, others
+			- Membership in each "area" is mutually exclusive
+			- The creator of the file is the default setting for the user and group of a file
+	
+	- `chmod permissions file`
+		- Command line utility to change file permissions
+		- The owner of a file (or root) can always change permissions
+		- File ownership and group can be changed with the `chown` and `chgrp` command line utilities
+
+- **File Table**
+	- A list of all files being used by a program while it is running
+	- Contains basic information like the file's location and size
+	- The file table has limited space, which is a power of 2 and commonly 256
+	- `getdtablesize()` will return the file table size
+	- Each file is given an integer index, starting at 0, this is the file descriptor
+	- There are 3 files always open in the table:
+		- 0 or 
+
+------------------------------------------------------------
 ### Monday, November 4, 2019
 
 #### Binary, Octal, and Hexadecimal Integers
