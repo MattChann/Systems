@@ -1,6 +1,63 @@
 # Notes for Systems Level Programming Class
 
 ------------------------------------------------------------
+### Thursday, November 7, 2019
+
+- **File Table (cont.)**
+	- Contains where you are in a file
+	- Flushing buffers? (smth w/ newlines)
+	- ex:
+
+| FD | Name   | Path | Size | ... |
+|----|--------|------|------|-----|
+| 0  | stdin  |      |      |     |
+| 1  | stdout |      |      |     |
+| 2  | stderr |      |      |     |
+| 3  | goo    |      |      |     |
+| 4  | boo    |      |      |     |
+
+`open` - <fcntl.h>
+- Add a file to the file table and returns its file descriptor
+- If open fails, -1 is returned, extra error information can be found in `errno`
+	- `errno` is an int variable that can be found in <errno.h>
+	- Use `strerror` in (string.h) on errno to return a string description of the error
+- How to use errno example:
+
+```c
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <fcntl.h>
+#include <errno.h>
+
+int main() {
+	int fd;
+	
+	fd = open("tobe", O_RDONLY);
+	if ( fd < 0) {
+		printf("errno: %d error: %s\n", errno, strerror(errno) );
+		return 0;
+	}
+	printf("fd: %d\n", fd);
+	printf("errno: %d error: %s\n", 6, strerror(6) );
+	return 0;
+}
+```
+- `open( path, flags, mode)`
+	- `mode`
+		- Only used when creating a file
+		- Set the new file's permissions using a 3 digit octal number
+	- `flags`
+		- Determine what you plan to do with the rile, use the following constants and combine with |:
+			- O_RDONLY
+			- O_WRONLY
+			- O_RDWR
+			- O_APPEND
+			- O_TRUNC
+			- O_CREAT
+			- O_EXCL: when combined with O_CREAT, will return an error if the file exists
+
+------------------------------------------------------------
 ### Wednesday, November 6, 2019
 
 #### File Permissions
@@ -27,7 +84,9 @@
 	- `getdtablesize()` will return the file table size
 	- Each file is given an integer index, starting at 0, this is the file descriptor
 	- There are 3 files always open in the table:
-		- 0 or 
+		- 0 or STDIN_FILENO:  stdin
+		- 1 or STDOUT_FILENO: stdout
+		- 2 or STDERR_FILENO: stderr
 
 ------------------------------------------------------------
 ### Monday, November 4, 2019
