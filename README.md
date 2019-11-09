@@ -1,6 +1,58 @@
 # Notes for Systems Level Programming Class
 
 ------------------------------------------------------------
+### Friday, November 8, 2019
+
+#### Read your writes!
+```c 
+  printf("O_RDONLY: \t%d\n", O_RDONLY); // 0
+  printf("O_WRONLY: \t%d\n", O_WRONLY); // 1
+  printf("O_RDWR:   \t%d\n", O_RDWR);   // 2
+  printf("O_CREAT:  \t%d\n", O_CREAT);  // 64
+  printf("O_EXCL:   \t%d\n", O_EXCL);   // 128 if a file exists and you want to create it, will return an error 
+  printf("O_TRUNC:  \t%d\n", O_TRUNC);  // 512 starts at beginning of file 
+  printf("O_APPEND: \t%d\n", O_APPEND); // 1024 starts at end of file
+  // each constant in decimal is a 1 with a bunch of 0s after
+  // bitwise or (|) will combine them 
+```
+If you do not set the mode argument when creaing a file, you will get random permissions. 
+- ` umask - <sys/stat.h>`
+	- set the file creation permission mask
+	- By default, created files are not given the exact permissions provided in the mode argument to open. Some permissions are automatically shut off
+  ```
+    -  mask:         000 000 010 (write for others is shut off)
+    - ~mask:         111 111 101 (bit wise negation)
+    -  mode:         110 110 110 
+    - ~mask & mode : 110 110 101 (bit wise negation of mask, bitwise and mode) 
+  - the default linux mask is 002
+  - umask(0) //no mask
+  ```
+
+- ` read - <unistd.h>`
+	- read data from a file
+	- ` read(fd, buff, n) `
+		- read n bytes from fd's file into buffer 
+		- returns the number of bytes actually read. Returns -1 and sets errno if unsuccessful. 
+		- buff must be a pointer 
+```c
+  char buff[100];
+  int fd = open("foo", 0_RDONLY);
+  read(fd, buff, sizeof(buff));
+```
+  
+- `write - <unistd.h>`
+	- write data to a file 
+	- ` write(fd, buff, n) `
+		- write n bytes to fd's file from buffer 
+		- returns the number of bytes actually written. Returns -1 and sets errno if unsuccessful. 
+		- buff must be a pointer 
+    
+- `close `
+	- closes file 
+	- returns -1 and sets errno if unsuccessful.
+	- `close(fd)`
+
+------------------------------------------------------------
 ### Thursday, November 7, 2019
 
 - **File Table (cont.)**
