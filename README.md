@@ -1,4 +1,4 @@
-# systems-w04-randfile
+# Work 04: /dev[ise a]/random plan
 
 Write a c program with the following features:
 1. A function that generates a random number by reading in the correct number of bytes from /dev/random.
