@@ -1,6 +1,26 @@
 # Notes for Systems Level Programming Class
 
 ------------------------------------------------------------
+### Tuesday, November 12, 2019
+
+#### Seek and ye shall find
+- `lseek - <unistd.h>`
+	- Set the current position in an open file
+
+			lseek(file_descriptor, offset, whence)
+	- `offset`
+		- Number of bytes to move the position by, can be negative (has to be int)
+	- `whence`
+		- Where to measure the offset from
+		- SEEK_SET
+			- offset is evaluated from the beginning of the file
+		- SEEK_CUR
+			- offset is relative to the current position in the file
+		- SEEK_END
+			-offset is evaluated from the end of the file
+	- Returns the number of bytes the current position is from the beginning of the file , or -1 and sets errno
+
+------------------------------------------------------------
 ### Friday, November 8, 2019
 
 #### Read your writes!
@@ -28,7 +48,7 @@ If you do not set the mode argument when creaing a file, you will get random per
   - umask(0) //no mask
   ```
 
-- ` read - <unistd.h>`
+- `read - <unistd.h>`
 	- read data from a file
 	- ` read(fd, buff, n) `
 		- read n bytes from fd's file into buffer 
@@ -68,7 +88,7 @@ If you do not set the mode argument when creaing a file, you will get random per
 | 3  | goo    |      |      |     |
 | 4  | boo    |      |      |     |
 
-`open` - <fcntl.h>
+`open - <fcntl.h>`
 - Add a file to the file table and returns its file descriptor
 - If open fails, -1 is returned, extra error information can be found in `errno`
 	- `errno` is an int variable that can be found in <errno.h>
@@ -137,7 +157,8 @@ int main() {
 	- Each file is given an integer index, starting at 0, this is the file descriptor
 	- There are 3 files always open in the table:
 		- 0 or STDIN_FILENO:  stdin
-		- 1 or STDOUT_FILENO: stdout
+		- 1 or STDOUT_
+FILENO: stdout
 		- 2 or STDERR_FILENO: stderr
 
 ------------------------------------------------------------
