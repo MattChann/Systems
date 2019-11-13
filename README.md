@@ -1,6 +1,29 @@
 # Notes for Systems Level Programming Class
 
 ------------------------------------------------------------
+### Wednesday, November 12, 2019
+
+#### Seek and ye shall find (cont.)
+- `stat - <sys/stat.h>`
+	- Get information about a file (metadata)
+	
+			stat(path, stat_buffer)
+	- `stat_buffer`
+		- Must be a pointer to a `struct stat`
+		- All the file information gets put into the stat buffer
+		- Some of the fields in `struct stat`:
+			- `st_size`
+				- file size in bytes
+			- `st_uid`, `st_gid`
+				- user id, group id
+			- `st_mode`
+				- file permissions
+			- `st_atime`, `st_mtime`
+				- last access, last modification
+				- these are `time_t` variables, we can use functions in `time_t` to make sense of them
+					- `ctime(time)`
+
+------------------------------------------------------------
 ### Tuesday, November 12, 2019
 
 #### Seek and ye shall find
