@@ -20,5 +20,4 @@ run:
 
 clean:
 	rm *.o
-	rm output
 	rm program
