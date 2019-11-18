@@ -1,7 +1,28 @@
 # Notes for Systems Level Programming Class
 
 ------------------------------------------------------------
-### Wednesday, November 12, 2019
+### Thursday, November 14, 2019
+
+#### Where do compsci clergy keep their files? - In d'rectory!
+All directories are 4096 bytes and are executable. 
+
+Directories 
+- A linux directory is a file containing the names of the files within the directory along with basic information, like file type.
+- Linux will increase the directory size if needed.
+
+`opendir - <dirent.h>`
+  - open a directory file
+  - This will ***not*** change the current working directory (cwd), it only allows your program to read the contents of the directory file
+  - `opendir(path)`
+    - Returns a pointer to a directory stream (`DIR *`)
+
+`readdir - <dirent.h>`
+  - `readdir(dir_stream)`
+    - Returns a pointer to the next entry in a directory steam, or NULL if all entries have alreadty been returned. 
+    -`struct dirent - <sys/types.h>`
+
+------------------------------------------------------------
+### Wednesday, November 13, 2019
 
 #### Seek and ye shall find (cont.)
 - `stat - <sys/stat.h>`
