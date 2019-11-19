@@ -22,8 +22,8 @@ int main(int argc, char * argv[]) {
                 dirString[i] = '\0';
             }
         }
-        printf("\n");
     }
+    printf("\n");
     dirStream = opendir(dirString);
     
     if (dirStream == NULL) {

@@ -14,7 +14,7 @@ val:
 	valgrind --leak-check=yes --track-origins=yes ./program
 
 run: 
-	./program
+	./program $(DIR)
 
 clean:
 	rm *.o
