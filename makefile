@@ -4,8 +4,6 @@ else
 	CC = gcc
 endif
 
-dependencies = library_methods.o list_methods.o
-
 all: main.o
 	$(CC) -o program main.o
 
