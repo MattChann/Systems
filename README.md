@@ -1,6 +1,28 @@
 # Notes for Systems Level Programming Class
 
 ------------------------------------------------------------
+### Monday, November 18, 2019
+### You want Input? fget(s) about it!
+- Command Line Arguments:
+	- `int main (int argc, char * argv[])`
+	- Program name is considered the first command line argument 
+	- `argc`
+		- number of command line arguments
+	- `argv` (argument vector)
+		- array of command line arguments as strings
+
+- `fgets - <stdio.h>`
+	- Read in data from a file stream and store it in a string.
+	- `fgets( char * s, int n, FILE * f);`
+		- Reads at most `n - 1` characters from file stream `f` and stores it in `s`, appends `NULL` to the end. 
+	- Stops at newline, end of file, or the byte limit. 
+	- File stream
+		- `File *` type, more complex than a file descriptor, allows for buffered input. 
+		- `stdin` is a `FILE *` variable
+	- Example:
+  		- `fgets(s, 100, stdin)`
+
+------------------------------------------------------------
 ### Thursday, November 14, 2019
 
 #### Where do compsci clergy keep their files? - In d'rectory!
