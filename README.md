@@ -1,6 +1,20 @@
 # Notes for Systems Level Programming Class
 
 ------------------------------------------------------------
+### Tuesday, November 19, 2019
+
+#### You want Input? fget(s) about it! (Cont.)
+- `sscanf - <stdio.h>`
+	- Reads in data from a string using a format string to determine types
+	- `sscanf(char *s, char * format, void * var0, void * var1, ...)`
+	- Copies the data into each variable
+	- Example usage:
+```c
+int x; float f; double d;
+sscanf(s, "%d %f %lf", &x, &f, &d);
+```
+
+------------------------------------------------------------
 ### Monday, November 18, 2019
 
 #### You want Input? fget(s) about it!
