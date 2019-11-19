@@ -2,7 +2,8 @@
 
 ------------------------------------------------------------
 ### Monday, November 18, 2019
-### You want Input? fget(s) about it!
+
+#### You want Input? fget(s) about it!
 - Command Line Arguments:
 	- `int main (int argc, char * argv[])`
 	- Program name is considered the first command line argument 
@@ -63,7 +64,7 @@ Directories
 				- file permissions
 			- `st_atime`, `st_mtime`
 				- last access, last modification
-				- these are `time_t` variables, we can use functions in `time_t` to make sense of them
+				- these are `time_t` variables, we can use functions in `time.h` to make sense of them
 					- `ctime(time)`
 
 ------------------------------------------------------------
