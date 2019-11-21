@@ -1,6 +1,26 @@
 # Notes for Systems Level Programming Class
 
 ------------------------------------------------------------
+### Thursday, November 21, 2019
+
+### Sending Mixed Signals
+- Signals
+	- Limited way of sending information to a process
+	- Sends an integer value to a process
+	- `$ kill`
+		- Command line utility to send a signal to a process
+		- `$ kill pid`
+			- Sends signal 15 (SIGTERM) to `pid`
+		- `$ kill -signal pid`
+			- Sends `signal` to `pid`
+	- `$ killall [-signal] process_name`
+_Note: killing one of the init processes shuts down your computer_
+- Signals in c programs `<signal.h>`
+	- kill
+		- `kill(pid, signal)`
+		- Can use to catch and change behavior when signals recieved
+
+------------------------------------------------------------
 ### Wednesday, November 20, 2019
 #### Are your processes runing? - Then go out and catch them!
 - Processes
