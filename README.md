@@ -1,6 +1,15 @@
 # Notes for Systems Level Programming Class
 
 ------------------------------------------------------------
+### Wednesday, November 20, 2019
+#### Are your processes runing? - Then go out and catch them!
+- Processes
+	- Every running program is a process
+	- A process can create subprocesses, but these are no different from regular processes
+	- A processor can handle 1 process per cycle (per core)
+	- "Multitasking" appears to happen because the processor switches between all the active processes quickly
+
+------------------------------------------------------------
 ### Tuesday, November 19, 2019
 
 #### You want Input? fget(s) about it! (Cont.)
