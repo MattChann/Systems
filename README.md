@@ -1,6 +1,37 @@
 # Notes for Systems Level Programming Class
 
 ------------------------------------------------------------
+### Friday, November 22, 2019
+
+```c
+static void sighandler() {
+	if (signo == SIGINT) {
+		printf("haha! Can't touch this!\n");
+	}
+	if (signo == SIGSEGV) {
+		printf("nothing too see here..\n");
+		exit(0);
+	}
+}
+
+int main() [
+	//...
+	signal(SIGINT, sighandler);
+	signal(SIGSEGV, sighandler);
+	//...
+}
+```
+#### Sending Mixed Signals (Cont.)
+- Signal handling in c program `<signal.h>`
+	- `sighandler`
+		- To intercept signals in a c program you must create a signal handling function
+		- Some signals (like SIGKILL, SIGSTOP) cannot be caught
+		- `static void sighandler(int signo)`
+			- Must be `static`
+			- Must be `void`
+			- Must take a single `int` parameter
+
+------------------------------------------------------------
 ### Thursday, November 21, 2019
 
 ### Sending Mixed Signals
