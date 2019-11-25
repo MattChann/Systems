@@ -1,6 +1,37 @@
 # Notes for Systems Level Programming Class
 
 ------------------------------------------------------------
+### Monday, November 25, 2019
+
+#### Executive Decisions
+- the `exec` family - `<unistd.h>`
+	- A group of c functions that can be used to run other programs
+	- Replaces the current process with the new program
+	- `execl`
+
+			execl(path, command, arg0, arg1, ... NULL)
+		- `path`
+			- The path to the program (ex `"/bin/ls"`)
+		- `command`
+			- The name of the program (ex: `"ls"`)
+		- `arg0 ...`
+			- Each command line argument you wish to give the program (ex: `"-a", "-l"`)
+			- The last argument must be NULL
+	- `execlp`
+
+			execlp(path, command, arg0, arg1, ... NULL)
+		- Works like `excel`,except it uses $PATH environment variable for command
+	- `execvp`
+	
+			execvp(path, argument_array)
+		- `argument_array`
+			- Array of strings containing the arguments to the command
+			- `argument_array[0]` must be the name of the program
+			- Last entry must be NULL
+	- `strsep - <string.h>`
+		- Parse a string with a common delimiter
+
+------------------------------------------------------------
 ### Friday, November 22, 2019
 
 ```c
@@ -16,8 +47,10 @@ static void sighandler() {
 
 int main() [
 	//...
+	
 	signal(SIGINT, sighandler);
 	signal(SIGSEGV, sighandler);
+	
 	//...
 }
 ```
