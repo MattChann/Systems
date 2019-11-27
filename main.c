@@ -7,17 +7,11 @@ char ** parse_args(char * line);
 
 
 int main() {
-    /* ===TESTING strsep()===
-    char line[100] = "woah-this-is-cool";
-    char *s1 = line;
-    while (*s1 != '\0') {
-        printf("[%s]\n", strsep( &s1, "-" ));
-        printf("[%s]\n", s1);
-    }
-     */
-    printf("stuff\n");
-    char ** args = parse_args("ls -a -l");
-    printf("in main: %s\n", args[0]);
+    printf("Testing Outputs:\n");
+    char line[32] = "ls -a -l";
+    printf("Running parse_args on \"%s\":\n", line);
+    char ** args = parse_args(line);
+    printf("Running execvp:\n\n");
     execvp(args[0], args);
 
     return 0;
@@ -25,20 +19,17 @@ int main() {
 
 
 char ** parse_args(char * line) {
-    printf("1\n");
     char ** stringArr = malloc(sizeof(char *) * 6);
-    printf("2\n");
     char * token = line;
-    printf("3\n");
-    int i=0;
-    while (*token != '\0') {
-        printf("4\n");
-        stringArr[i] = malloc(sizeof(char) * 50);
-        printf("5\n");
-        stringArr[i] = strsep(&token, " ");
-        printf("6\n");
-        printf("in loop: %s\n", stringArr[i]);
-        i++;
+    int i;
+    for (i=0; i<6; i++) {
+        if (token != NULL)  {
+            stringArr[i] = malloc(sizeof(char) * 50);
+            strcpy(stringArr[i], strsep(&token, " "));
+            printf("\tstringArr[%d]: %s\n", i, stringArr[i]);
+        }else {
+            stringArr[i] = NULL;
+        }
     }
 
     return stringArr;
