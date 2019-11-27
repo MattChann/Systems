@@ -1,6 +1,17 @@
 # Notes for Systems Level Programming Class
 
 ------------------------------------------------------------
+### Wednesday, November 27, 2019
+
+#### What the fork?
+- Managing Sub-Processes
+	- `fork() - <unistd.h>`
+		- Creates a separate process based on the current one, the new process is called a child, the original is the parent
+		- The child process is a duplicate of the parent process
+		- All parts of the parent process are copied, including stack and heap memory, and the file table
+		- Returns `0` to the child and the child's pid, or `-1` (errno), to the parent
+
+------------------------------------------------------------
 ### Tuesday, November 26, 2019
 
 #### Executive Decisions (Cont.)
