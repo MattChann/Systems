@@ -1,6 +1,28 @@
 # Notes for Systems Level Programming Class
 
 ------------------------------------------------------------
+### Tuesday, November 26, 2019
+
+#### Executive Decisions (Cont.)
+- `strsep - <string.h>`
+	- Parse a string with a common delimiter
+
+			strsep( source, delimiters)
+		- Locates the first occurence of any of the specified `delimiters` in a string and replaces it with `NULL`
+		- `delimiters` is a string, each character is interpreted as a distinct delimiter
+		- Returns the beginning of the original string, sets `source` to the string starting at 1 index past the location of the new `NULL`
+	- Example:
+```c
+char line[100] = "woah-this-is-cool";
+char *curr = line;
+char * token;
+token = strsep(&curr, "-");
+```
+- replaces the `-` after `woah` with `NULL`
+- returns a pointer to the `w` in `woah`
+- sets `curr` to point to the `t` in `this is cool`
+
+------------------------------------------------------------
 ### Monday, November 25, 2019
 
 #### Executive Decisions
