@@ -1,6 +1,26 @@
 # Notes for Systems Level Programming Class
 
 ------------------------------------------------------------
+### Friday, December 13, 2019
+
+```c
+int main() {
+	int fd;
+	char line[100];
+	
+	mkfifo("mario", 0640);
+	
+	fd = open("mario", O_RDONLY);
+	printf("fifo open!\n");
+	
+	remove("mario);
+	
+	while(read(fd, line, sizeof(line)))
+		printf("read: [%s]\n", line);
+}
+```
+
+------------------------------------------------------------
 ### Wednesday, November 27, 2019
 
 #### What the fork?
