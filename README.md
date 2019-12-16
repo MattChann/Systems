@@ -1,6 +1,22 @@
 # Notes for Systems Level Programming Class
 
 ------------------------------------------------------------
+### Monday, December 16, 2019
+
+#### Sharing is caring
+- Shared Memory
+	- `<sys/shm.h>`, `<sys/ipc.h>`, `<sys/types.h>`
+	- A segment of heap memory that can be accessed by multiple processes
+	- Shared memory is accessed via a key that is known by any process that needs to access it
+	- Shared memory does not get released when a program exits
+	- 5 Shared memory operations
+		- Create the segment (happens once) - `shmget`
+		- Access the segment (happens once per process) - `shmget`
+		- Attach the segment to a variable (once per process) - `shmat`
+		- Detach the segment from a variable (once per process) - `shmdt`
+		- Remove the segment (happens once) - `shmctl`
+
+------------------------------------------------------------
 ### Friday, December 13, 2019
 
 ```c
