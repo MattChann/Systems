@@ -1,6 +1,27 @@
 # Notes for Systems Level Programming Class
 
 ------------------------------------------------------------
+### Wednesday, December 18, 2019
+
+#### How do we flag down a resource?
+- Semaphore operations
+	- Create a semaphore
+	- Set an initial value
+	- Remove a semaphore
+	- `Up(S)` / `V(S)` - atomic
+		- Release the semaphore to signal you are done with its associates resource
+		- Pseudocode
+			- `S++`
+	- `Down(S)` / `P(S)` - atomic
+		- Attempt to take the semaphore
+		- If the semaphore is 0, wait for it to be available
+		- Pseudocode
+			- `while (S == 0) { block } S--;`
+
+```c
+```
+
+------------------------------------------------------------
 ### Monday, December 16, 2019
 
 #### Sharing is caring
