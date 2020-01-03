@@ -1,6 +1,29 @@
 # Notes for Systems Level Programming Class
 
 ------------------------------------------------------------
+### Friday, January 3, 2020
+
+#### Server/Client Design Patterns
+-1) **Peer-To-Program** (not exactly Server/Client)
+- C_0  <--->  C_1
+- Direct connection between clients
+- Good for well-structured interactions
+0. **Single Server**
+	- 1 server
+		- Handles all connections
+		- Handles all communication
+1. **Forking Server**
+	- 1 main server
+		- Handles all connections
+		- Creates subservers to handle all communication
+2. **Dispatch Server**
+	- 1 main server
+		- Handles all connections
+		- Handles all incoming data
+		- Subservers handle all outgoing data
+		- Main server routes data to subservers
+		
+------------------------------------------------------------
 ### Wednesday, December 18, 2019
 
 #### How do we flag down a resource?
