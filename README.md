@@ -1,6 +1,21 @@
 # Notes for Systems Level Programming Class
 
 ------------------------------------------------------------
+### Friday, January 6, 2020
+
+#### Networking Hurdles to Overcome:
+- Operating System
+- Endian-ness (Integer size)
+- Somehow connected
+
+#### OSI 7 Layer Model
+7)Application - most abstract
+
+...
+
+1)Physical Hardware - most concrete
+
+------------------------------------------------------------
 ### Friday, January 3, 2020
 
 #### Server/Client Design Patterns
