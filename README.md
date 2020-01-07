@@ -1,7 +1,41 @@
 # Notes for Systems Level Programming Class
 
 ------------------------------------------------------------
-### Friday, January 6, 2020
+### Monday, January 6, 2020
+
+[Beej's Guide](https://beej.us/guide/bgnet/)
+
+#### Socket
+- a piece of memory that your program is going to use to transfer data
+- unlike a pipe it will need a lot more information on the operating system
+- there are 3 things associated with a socket that makes it unique
+	1. Protocol (2)
+		- 2 main protocols you will deal with
+			1. Transmission Control Protocol (TCP) or just Stream Protocol
+				- if you send data to another machine using TCP
+					- either the data will be sent in entirety in the order you sent
+					- or you will get an error
+				- 2 packets might take different paths to the same place
+				- if packets dont get there, they can ask to send the packet again
+			2. User Datagram Protocol (UDP)
+				- not verified (no handshake)
+				- maybe someone listening, maybe not
+				- just sends data out
+				- does not worry about rearranging packets (not in order)
+				- WONT request packets missing
+				- **much faster**
+				- used all the time for streaming media and games
+	2. Port (65,536)
+		- that is what allows you to have multiple sockets associated with the same IP Address
+		- ex: every different web browser tab is a socket with different ports
+		- some are designated for specific usage
+			- port 80 is for web traffic
+	3. Incoming/Outgoing Addresses (I.P. Addresses)
+		- externally provided
+		- generally each computer has just 1
+
+------------------------------------------------------------
+### Monday, January 6, 2020
 
 #### Networking Hurdles to Overcome:
 - Operating System
