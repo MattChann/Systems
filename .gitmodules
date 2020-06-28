@@ -10,3 +10,12 @@
 [submodule "intro/14_string_funcs"]
 	path = intro/14_string_funcs
 	url = https://github.com/mks65/strings-solon.git
+[submodule "projects/00-myTunes"]
+	path = projects/00-myTunes
+	url = https://github.com/MattChann/systems-p00.git
+[submodule "projects/01-shell"]
+	path = projects/01-shell
+	url = https://github.com/kazijamal/systems-level-programming.git
+[submodule "projects/02-final"]
+	path = projects/02-final
+	url = https://github.com/ericlau00/systems-level-programming.git
